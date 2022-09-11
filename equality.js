@@ -17,3 +17,21 @@ function strictEquality(value) {
     return false;
 }
 console.log(strictEquality('33'));
+console.log(typeof 3); //use typeof to get the data type
+
+//the not equal to is the inverse of equal to and also performs type conversion
+function notEqual(value) {
+    if (value!=8) {
+        return true;
+    }
+    return false;
+}
+console.log(notEqual('8'));
+//the strict inequality operator is the inverse of the strict equality and does not perform type conversion
+function strictNotEqual(value) {
+    if (value!==8) {
+        return true;
+    }
+    return false;
+}
+console.log(strictNotEqual('8'));
