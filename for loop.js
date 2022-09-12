@@ -12,3 +12,14 @@
     myArray.push(i); 
  }
  console.log(myArray);
+
+
+//iterate odd numbers with for loop
+const ourArray=[];
+for (let i = 1; i < 10; i+=2) {
+    ourArray.push(i);
+    
+}
+console.log(ourArray);
+
+f
