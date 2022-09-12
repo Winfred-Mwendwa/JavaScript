@@ -1,4 +1,4 @@
-// if else statement is used to specify the statement to be executed when the if condition is not satisfied
+//else statement is used to specify the statement to be executed when the if condition is not satisfied
 function ifElse(num) {
     if (num<5) {
         return 'less than five';
@@ -9,7 +9,7 @@ function ifElse(num) {
 console.log(ifElse(10));
 
 //else if is used when several conditions are to be checked at once
-// note that the statements are executed in a top down manner thus their order is of importance
+//note that the statements are executed in a top down manner thus their order is of importance
 function elseIf(num) {
     if (num<5) {
         return 'less than 5';
