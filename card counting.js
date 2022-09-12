@@ -1,3 +1,7 @@
+//code implementation of card counting in blackjack
+//the count is incremented for cards 2-6, remains unchanged for 7,8 and 9 and is decremented for 10 'J' 'Q' 'K' and 'A'
+//the player then bets if count is positive and holds if count is zero or negative(all other cases)
+
 let count = 0;
 
 function cc(card) {
@@ -24,6 +28,6 @@ switch(card) {
   }
 }
 
-  
+//test cases
 
 console.log(cc(2), cc(3),cc('J'));
