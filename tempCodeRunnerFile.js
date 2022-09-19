@@ -1,12 +1,8 @@
-const stats = {
-    max: 56.78,
-    standard_deviation: 4.34,
-    median: 34.54,
-    mode: 23.87,
-    min: -0.75,
-    average: 35.85
-  };
+function forecast(arr) {
+   
+  let newArray= arr.slice(2,4);
+    return newArray;
+  }
   
   
-  const half = ({max,min}=stats) => (max + min) / 2.0; 
-  console.log(half());
+  console.log(forecast(['cold', 'rainy', 'warm', 'sunny', 'cool', 'thunderstorms']));
