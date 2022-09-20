@@ -1,8 +1,26 @@
-function forecast(arr) {
-   
-  let newArray= arr.slice(2,4);
-    return newArray;
+let users1 = {
+    Alan: {
+      age: 27,
+      online: false
+    },
+    Jeff: {
+      age: 32,
+      online: true
+    },
+    Sarah: {
+      age: 48,
+      online: false
+    },
+    Ryan: {
+      age: 19,
+      online: true
+    }
+  };
+  
+  function getArrayOfUsers(obj) { 
+    
+  return Object.keys(obj);
+    
   }
   
-  
-  console.log(forecast(['cold', 'rainy', 'warm', 'sunny', 'cool', 'thunderstorms']));
+  console.log(getArrayOfUsers(users1));

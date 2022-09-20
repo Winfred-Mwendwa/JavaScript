@@ -65,3 +65,34 @@ function copyMachine(arr, num) {
   }
   
   console.log(copyMachine([true, false, true], 2));
+
+//function, using indexOf() returns true if the passed element exists on the array, and false if it does not.
+function quickCheck(arr, elem) {
+    
+  if (arr.indexOf(elem)!= -1) {  //indexOf() returns -1 if an element does not exist on the given array
+    return true;
+  }
+  else {
+  return false;
+  }
+    
+  }
+  
+  console.log(quickCheck(['squash', 'onions', 'shallots'], 'mushrooms'));
+
+//Iterate Through All an Array's Items Using For Loops
+//function that returns filtered version of passed array in which all nested items containing elem have been removed
+function filteredArray(arr, elem) {
+    let newArr = [];
+    
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i].indexOf(elem) === -1) {
+        newArr.push(arr[i]);  //only push to the new array if elem does not exist
+      }
+    }
+  
+    
+    return newArr;
+  }
+  
+  console.log(filteredArray([[3, 2, 3], [1, 6, 3], [3, 13, 26], [19, 3, 9]], 3));
