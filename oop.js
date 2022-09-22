@@ -39,3 +39,11 @@ function Dog(name, color) {
     this.numLegs=4;
     }
     let terrier= new Dog('Kip','white');
+
+//verify if an object is an instance of a given constructor using instanceof method; returns true or false
+function House(numBedrooms) {
+    this.numBedrooms = numBedrooms;
+  }
+  let myHouse= new House(5);
+  
+  console.log(myHouse instanceof House);

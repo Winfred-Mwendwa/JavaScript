@@ -43,3 +43,13 @@ function getIndexToIns(arr, num) {
    }
    
    console.log(getIndexToIns([40, 60], 50));
+
+
+//remove all whitespaces from a string
+function noSpace(x){
+    let myRegex=/\s+/g;
+    let result = x.replace(myRegex,''); 
+    return result;
+  }
+//or...
+function noSpace(x){return x.split(' ').join('')}
