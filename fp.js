@@ -113,3 +113,95 @@ function incrementer(fixedValue) {
 
   // Only change code above this line
 }
+
+//
+// The global variable
+const bookList = ["The Hound of the Baskervilles", "On The Electrodynamics of Moving Bodies", "Philosophiæ Naturalis Principia Mathematica", "Disquisitiones Arithmeticae"];
+
+// Change code below this line
+function add (bookList, bookName) {
+  return [...bookList, bookName];
+}
+  // Change code above this line
+
+
+// Change code below this line
+function remove (bookList, bookName) {
+  const bookListCopy = [...bookList];
+  const bookNameIndex = bookList.indexOf(bookName);
+  if (bookNameIndex >= 0) {
+    bookListCopy.splice(bookNameIndex, 1);
+  }
+  return bookListCopy;
+}
+
+//map() method for arrays
+//The map method iterates over each item in an array and returns a new array containing the results of calling the callback function on each element. 
+//It does this without mutating the original array.
+//When the callback is used, it is passed three arguments. 
+//The first argument is the current element being processed. 
+//The second is the index of that element and the third is the array upon which the map method was called.
+const users = [
+    { name: 'John', age: 34 },
+    { name: 'Amy', age: 20 },
+    { name: 'camperCat', age: 10 }
+  ];
+  
+  const names = users.map(user => user.name);
+  console.log(names);
+
+//filter() method for arrays
+//filter calls a function on each element of an array and returns a new array containing only the elements for which that function returns true. 
+//In other words, it filters the array, based on the function passed to it. 
+//Like map, it does this without needing to modify the original array.
+const users = [
+    { name: 'John', age: 34 },
+    { name: 'Amy', age: 20 },
+    { name: 'camperCat', age: 10 }
+  ];
+  
+  const usersUnder30 = users.filter(user => user.age < 30);
+  console.log(usersUnder30); 
+
+//extract data from an array with given conditions
+const filteredList = watchList
+  .filter(movie => movie.imdbRating >= 8.0) //only movies with an imdbrating >=8
+  .map(movie => ({ title: movie["Title"], rating: movie["imdbRating"] })); //use map to shape the output
+
+console.log(filteredList);
+
+//Remove Elements from an Array Using slice Instead of splice
+//splice mutates the original array which is an undesired side effect;, while slice does not cause mutation
+function nonMutatingSplice(cities) {
+    
+    return cities.splice(3);
+  
+    
+  }
+  
+  const inputCities = ["Chicago", "Delhi", "Islamabad", "London", "Berlin"];
+  nonMutatingSplice(inputCities);
+
+  function nonMutatingSplice(cities) {
+    
+    return cities.slice(0,3); //limit to only 1st three items
+  
+    
+  }
+  
+  const inputCities = ["Chicago", "Delhi", "Islamabad", "London", "Berlin"];
+  nonMutatingSplice(inputCities);
+
+  //combine two arrays or strings using the concat() method
+  //For arrays, the method is called on one, then another array is provided as the argument to concat, which is added to the end of the first array. 
+  //It returns a new array and does not mutate either of the original arrays. 
+  function nonMutatingConcat(original, attach) {
+    
+  return original.concat(attach);
+  
+    
+  }
+  
+  const first = [1, 2, 3];
+  const second = [4, 5];
+  nonMutatingConcat(first, second);

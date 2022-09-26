@@ -47,7 +47,7 @@ function htmlColorNames(arr) {
 //originaal array remains the same
 function forecast(arr) {
    
-  let newArray= arr.slice(2,4);
+  let newArray= arr.slice(2);
     return newArray;
   }
   console.log(forecast(['cold', 'rainy', 'warm', 'sunny', 'cool', 'thunderstorms']));
