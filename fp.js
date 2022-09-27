@@ -154,13 +154,13 @@ const users = [
 //filter calls a function on each element of an array and returns a new array containing only the elements for which that function returns true. 
 //In other words, it filters the array, based on the function passed to it. 
 //Like map, it does this without needing to modify the original array.
-const users = [
+const users1 = [
     { name: 'John', age: 34 },
     { name: 'Amy', age: 20 },
     { name: 'camperCat', age: 10 }
   ];
   
-  const usersUnder30 = users.filter(user => user.age < 30);
+  const usersUnder30 = users1.filter(user => user.age < 30);
   console.log(usersUnder30); 
 
 //extract data from an array with given conditions
@@ -189,7 +189,7 @@ function nonMutatingSplice(cities) {
     
   }
   
-  const inputCities = ["Chicago", "Delhi", "Islamabad", "London", "Berlin"];
+  const inputCities1 = ["Chicago", "Delhi", "Islamabad", "London", "Berlin"];
   nonMutatingSplice(inputCities);
 
   //combine two arrays or strings using the concat() method
@@ -205,3 +205,152 @@ function nonMutatingSplice(cities) {
   const first = [1, 2, 3];
   const second = [4, 5];
   nonMutatingConcat(first, second);
+
+//Add Elements to the End of an Array Using concat Instead of push
+function nonMutatingPush(original, newItem) {
+    // Only change code below this line
+    return original.concat(newItem);
+  
+    // Only change code above this line
+  }
+  
+  const first1 = [1, 2, 3];
+  const second1 = [4, 5];
+  nonMutatingPush(first, second);
+
+//use the reduce method to analye data
+//find average rating of movies directed by christopher nolan
+function getRating(watchList) {
+    
+    let averageRating= watchList
+    .filter(movie => movie.Director== 'Christopher Nolan') //filter out only movies directed by him from  the watchlist array
+    .map(movie => parseFloat(movie.imdbRating))  //obtain an array with only the ratings converted to floats from strings. also can use number() to convert
+    .reduce((sumOfRatings, rating) => sumOfRatings + rating) /
+    // Divide by the number of Nolan films to get the average rating
+    watchList.filter(film => film.Director === "Christopher Nolan").length
+    
+    return averageRating;
+  }
+
+//given an array of real numbers
+//return a new array with the squares of only the positive integers(non-decimal)
+const squareList = arr => {
+    
+    
+    return arr
+            .filter(num => num > 0 && num % parseInt(num) === 0)
+            .map(num => Math.pow(num, 2));
+    return arr;
+    
+  };
+
+//The sort method sorts the elements of an array according to the callback function.
+//the array elements are sorted according to the return value of the compareFunction:
+//If compareFunction(a,b) returns a value less than 0 for two elements a and b, then a will come before b. 
+//If compareFunction(a,b) returns a value greater than 0 for two elements a and b, then b will come before a. 
+//If compareFunction(a,b) returns a value equal to 0 for two elements a and b, then a and b will remain unchanged.
+
+//sort an array in reverse alphabetical order
+function reverseAlpha(arr) {
+    return arr.sort(function(a, b) {
+      return a === b ? 0 : a < b ? 1 : -1;
+    });
+  }
+  
+  reverseAlpha(['l', 'h', 'z', 'b', 's']);
+
+//sort  an array in alphabetical order
+function alphabeticalOrder(arr) {
+    
+  return arr.sort(function(a,b) {
+    return a === b ? 0: a > b ? 1: -1;
+  });
+    return arr
+    
+  }
+  
+  alphabeticalOrder(["a", "d", "c", "a", "z", "g"]);
+
+//Use the sort method in the nonMutatingSort function to sort the elements of an array in ascending order. 
+//The function should return a new array, and not mutate the globalArray variable.
+//One way to avoid this is to first concatenate an empty array to the one being sorted then run the sort method.
+const globalArray = [5, 6, 3, 2, 9];
+
+function nonMutatingSort(arr) {
+  
+
+return [].concat(arr).sort(function(a, b) {
+    return a - b;
+});
+
+}
+
+nonMutatingSort(globalArray);
+
+//Split a String into an Array Using the split Method
+function splitify(str) {
+    
+  return str.split(/\W/)
+  
+  }
+  
+  splitify("Hello World,I-am code");
+
+//The join method is used to join the elements of an array together to create a string. 
+//It takes an argument for the delimiter that is used to separate the array elements in the string.
+function sentensify(str) {
+   
+  return str.split(/\W/).join(' ');
+  
+    
+  }
+  
+  sentensify("May-the-force-be-with-you");
+
+//convert a string into URL slugs
+function urlSlug(title) {
+    return title.toLowerCase().trim().split(/\s+/).join('-');
+    
+    }
+    
+    urlSlug("A Mind Needs Books Like A Sword Needs A Whetstone");
+
+//use every method to check that every element in an array meets a criteria
+//return true if every element is positive
+function checkPositive(arr) {
+    
+   return arr.every(num=>num>0?true:false)
+  
+    
+  }
+  
+  checkPositive([1, 2, 3, -4, 5]);
+
+//use some() to check if any element in an array meets a creteria
+function checkPositive(arr) {
+    
+  return arr.some(num=> num>0? true:false);
+  
+    
+  }
+  
+  checkPositive([1, 2, 3, -4, 5]);
+
+
+
+//The arity of a function is the number of arguments it requires. 
+//Currying a function means to convert a function of N arity into N functions of arity 1.
+
+//In other words, it restructures a function so it takes one argument, then returns another function that takes the next argument, and so on.
+//Similarly, partial application can be described as applying a few arguments to a function at a time and returning another function that is applied to more arguments.
+function add(x) {
+    
+   return function (y) {
+    return function(z) {
+      return x+y+z;
+    }
+  }
+  
+  }
+  
+  add(10)(20)(30);

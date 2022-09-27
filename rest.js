@@ -15,3 +15,4 @@ console.log(maximus)
 const array1=[1,23,55];
 const array2=[...array1]
 console.log(array2);
+
