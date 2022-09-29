@@ -217,3 +217,91 @@ function convertHTML(str) {
   }
 
 convertHTML("Dolce & Gabbana");
+
+//return the running sum of an array
+
+let arrayFunc=arr=> arr.reduce((a,b)=>a+b);
+
+console.log(arrayFunc([0,1,3,4]));
+
+
+//return the sum of all odd fibonnacci numbers less than or equal to num
+/*The first two numbers in the Fibonacci sequence are 1 and 1. Every additional number in the sequence is the sum of the two previous numbers. 
+The first six numbers of the Fibonacci sequence are 1, 1, 2, 3, 5 and 8. */
+function sumFibs(num) {
+  // Perform checks for the validity of the input
+  if (num <= 0) return 0;
+
+  // Create an array of fib numbers till num
+  const arrFib = [1, 1];
+  let nextFib = 0;
+
+  // We put the new Fibonacci numbers to the front so we
+  // don't need to calculate the length of the array on each
+  // iteration
+  while ((nextFib = arrFib[0] + arrFib[1]) <= num) {
+    arrFib.unshift(nextFib);
+  }
+
+  // We filter the array to get the odd numbers and reduce them to get their sum.
+  return arrFib.filter(x => x % 2 != 0).reduce((a, b) => a + b);
+}
+
+// test here
+sumFibs(4);
+
+//iterate over the given array and remove elements starting from the first element until the function returns true
+function dropElements(arr, func) {
+  while (arr.length > 0 && !func(arr[0])) {
+    arr.shift();
+  }
+  return arr;
+}
+
+// test here
+dropElements([1, 2, 3, 4], function(n) {
+  return n >= 3;
+});
+
+//flatten a nested array while accounting for varrying levels of nesting
+/*If you are dealing with an array, then you need flatten it by getting the value inside of the array. 
+This means if you have [[4]] then instead of returning [4] you need to return 4. */
+function steamrollArray(arr) {
+  const flattenedArray = [];
+  // Loop over array contents
+  for (let i = 0; i < arr.length; i++) {
+    if (Array.isArray(arr[i])) {
+      // Recursively flatten entries that are arrays
+      //  and push into the flattenedArray
+      flattenedArray.push(...steamrollArray(arr[i]));
+    } else {
+      // Copy contents that are not arrays
+      flattenedArray.push(arr[i]);
+    }
+  }
+  return flattenedArray;
+};
+
+// test here
+steamrollArray([1, [2], [3, [[4]]]]);
+
+//convert binary string to words
+function binaryAgent(str) {
+  var biString = str.split(" ");
+  var uniString = [];
+
+  /*using the radix (or base) parameter in parseInt, we can convert the binary
+      number to a decimal number while simultaneously converting to a char*/
+
+  for (var i = 0; i < biString.length; i++) {
+    uniString.push(String.fromCharCode(parseInt(biString[i], 2)));
+  }
+
+  // we then simply join the string
+  return uniString.join("");
+}
+
+// test here
+binaryAgent(
+  "01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111"
+);
