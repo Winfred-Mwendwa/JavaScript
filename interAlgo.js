@@ -173,7 +173,7 @@ function fearNotLetter(str) {
 // test here
 fearNotLetter("abce");
 
-//return new araay with unique numbers from each array in the order in which they occur in original arrays
+//return new aray with unique numbers from each array in the order in which they occur in original arrays
 function uniteUnique(...arr) {
   
   const result = [];
@@ -305,3 +305,32 @@ function binaryAgent(str) {
 binaryAgent(
   "01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111"
 );
+
+/*write a function that adds two argumentss together if both are provided
+if one is provided return a function that accepts the 2nd argument and returns their sum
+if either of the arguments is not a number return undefined*/
+
+
+function addTogether() {
+  const [first, second] = arguments;
+  if (typeof(first) !== "number")
+    return undefined;
+  if (arguments.length === 1)
+    return (second) => addTogether(first, second);
+  if (typeof(second) !== "number")
+    return undefined;
+  return first + second;
+}
+
+function palindrome(str) {
+  let norm=str.split(/\s|_|,|.|-/).join('').toLowerCase();
+  console.log(norm)
+  let rev=norm.split('').reverse().join('');
+  console.log(rev)
+  if (norm==rev) {
+    return true;
+  } else {return false}
+  
+}
+
+console.log(palindrome("eye"));
